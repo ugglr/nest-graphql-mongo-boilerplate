@@ -2,30 +2,34 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
-  """User MongoDB ID"""
+type UserDto {
   id: ID!
   email: String!
-  password: String
   name: String
 }
 
-type CreateUserDto {
+type UpdateUserDto {
   id: ID!
-  email: String!
-  name: String
+  success: Boolean!
 }
 
 type Query {
-  users: [User]!
+  users: [UserDto]!
 }
 
 type Mutation {
-  createUser(input: CreateUserInput!): CreateUserDto!
+  createUser(input: CreateUserInput!): UserDto!
+  updateUser(input: UpdateUserInput!): UpdateUserDto!
 }
 
 input CreateUserInput {
   email: String!
   password: String!
   name: String
+}
+
+input UpdateUserInput {
+  userId: String!
+  newEmail: String
+  newName: String
 }

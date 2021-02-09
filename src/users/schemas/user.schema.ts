@@ -9,7 +9,7 @@ export const UserSchema = new mongoose.Schema({
 
 @ObjectType()
 export class User extends mongoose.Document {
-  @Field((type) => ID, { description: 'User MongoDB ID' })
+  @Field(() => ID, { description: 'User MongoDB ID' })
   id: string;
 
   @Field({ nullable: false })
